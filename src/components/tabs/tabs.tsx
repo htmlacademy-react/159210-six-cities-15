@@ -4,11 +4,12 @@ type TabsProps = {
 
 function GetTabs({cities}: TabsProps) {
   const citiesList = cities.map((city) =>
-    `<li className="locations__item">
+    // eslint-disable-next-line react/jsx-key, react/jsx-wrap-multilines
+    <li className="locations__item">
       <a className="locations__item-link tabs__item" href="#">
-        <span>${city}</span>
+        <span>{city}</span>
       </a>
-    </li>`
+    </li>
   );
   return citiesList;
 }

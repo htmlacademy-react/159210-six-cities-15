@@ -46,7 +46,7 @@ export const PlacesInfo: PlaceProps[] = [
   },
   {
     isPremium: true,
-    img: 'apartment-04',
+    img: 'apartment-01',
     price: 180,
     rating: 1,
     type: 'Apartment',

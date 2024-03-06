@@ -53,6 +53,7 @@ export default function MainPage(): JSX.Element {
                     type={place.type}
                     id={place.id}
                     key={place.id}
+                  // eslint-disable-next-line react/jsx-closing-bracket-location
                   />)
                 )}
               </div>

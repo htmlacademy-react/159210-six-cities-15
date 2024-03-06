@@ -23,7 +23,7 @@ function CheckBookmark({ isBookmarked }: CheckBookmarkProps) {
   if (isBookmarked) {
     return (
       <button
-        className="place-card__bookmark-button button"
+        className="place-card__bookmark-button place-card__bookmark-button--active button"
         type="button"
       >
         <svg
@@ -33,14 +33,14 @@ function CheckBookmark({ isBookmarked }: CheckBookmarkProps) {
         >
           <use xlinkHref="#icon-bookmark" />
         </svg>
-        <span className="visually-hidden">To bookmarks</span>
+        <span className="visually-hidden">In bookmarks</span>
       </button>
     );
   }
 
   return (
     <button
-      className="place-card__bookmark-button place-card__bookmark-button--active button"
+      className="place-card__bookmark-button button"
       type="button"
     >
       <svg
@@ -50,7 +50,7 @@ function CheckBookmark({ isBookmarked }: CheckBookmarkProps) {
       >
         <use xlinkHref="#icon-bookmark" />
       </svg>
-      <span className="visually-hidden">In bookmarks</span>
+      <span className="visually-hidden">To bookmarks</span>
     </button>
   );
 }
