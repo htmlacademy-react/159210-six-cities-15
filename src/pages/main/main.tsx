@@ -43,18 +43,19 @@ export default function MainPage(): JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
                 {PlacesInfo.map((place) =>
-                  (<PlaceCard
-                    img={place.img}
-                    rating={place.rating}
-                    isPremium={place.isPremium}
-                    isBookmarked={place.isBookmarked}
-                    price={place.price}
-                    name={place.name}
-                    type={place.type}
-                    id={place.id}
-                    key={place.id}
-                  // eslint-disable-next-line react/jsx-closing-bracket-location
-                  />)
+                  (
+                    <PlaceCard
+                      img={place.img}
+                      rating={place.rating}
+                      isPremium={place.isPremium}
+                      isBookmarked={place.isBookmarked}
+                      price={place.price}
+                      name={place.name}
+                      type={place.type}
+                      id={place.id}
+                      key={place.id}
+                    />
+                  )
                 )}
               </div>
             </section>
