@@ -1,6 +1,6 @@
 import Header from '../../components/header/header.tsx';
 
-export default function MainPage(): JSX.Element {
+export default function OfferPage(): JSX.Element {
   return (
     <div className="page">
       <Header />
