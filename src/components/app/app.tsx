@@ -20,7 +20,7 @@ export default function App(): JSX.Element {
         }
         />
         <Route path={AppRoute.Offer} element={<OfferPage />} />
-        <Route path={AppRoute.NotFound} element={<NotFoundPage />} />
+        <Route path={AppRoute.Any} element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
