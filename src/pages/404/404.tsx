@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
 import Header from '../../components/header/header';
+import { AuthorizationStatus, AppRoute } from '../../const';
 
-export default function NotFoundPage(): JSX.Element {
+type NotFoundPageProps = {
+  authorizationStatus: AuthorizationStatus.Auth | AuthorizationStatus.NoAuth;
+}
+
+export default function NotFoundPage({ authorizationStatus }: NotFoundPageProps): JSX.Element {
   return (
     <div className="page">
-      <Header />
+      <Header authorizationStatus={authorizationStatus}/>
       <main className="page__main page__main--index page__main--index-empty">
         <h1 className="visually-hidden">Cities</h1>
         <div className="cities">
@@ -16,7 +21,7 @@ export default function NotFoundPage(): JSX.Element {
                   Page is not found
                 </p>
                 <p className="cities__status-description">
-                  <Link to="/"><u>Go to main page</u></Link>
+                  <Link to={AppRoute.Root}><u>Go to main page</u></Link>
                 </p>
               </div>
             </section>

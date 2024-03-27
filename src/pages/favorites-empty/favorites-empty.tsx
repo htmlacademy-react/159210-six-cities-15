@@ -1,9 +1,14 @@
 import Header from '../../components/header/header.tsx';
+import { AuthorizationStatus } from '../../const.ts';
 
-export default function FavoritesEmptyPage(): JSX.Element {
+type FavoritesEmptyPageProps = {
+  authorizationStatus: AuthorizationStatus.Auth | AuthorizationStatus.NoAuth;
+}
+
+export default function FavoritesEmptyPage({authorizationStatus}: FavoritesEmptyPageProps): JSX.Element {
   return (
     <div className="page page--favorites-empty">
-      <Header />
+      <Header authorizationStatus={authorizationStatus} />
       <main className="page__main page__main--favorites page__main--favorites-empty">
         <div className="page__favorites-container container">
           <section className="favorites favorites--empty">
