@@ -1,14 +1,18 @@
 import Header from '../../components/header/header.tsx';
 import Tabs from '../../components/tabs/tabs.tsx';
-import { Cities } from '../../const.ts';
+import { AllCities, AuthorizationStatus } from '../../const.ts';
 
-export default function MainEmptyPage(): JSX.Element {
+type MainEmptyPageProps = {
+  authorizationStatus: AuthorizationStatus.Auth | AuthorizationStatus.NoAuth;
+}
+
+export default function MainEmptyPage({authorizationStatus}: MainEmptyPageProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
-      <Header />
+      <Header authorizationStatus={authorizationStatus} />
       <main className="page__main page__main--index page__main--index-empty">
         <h1 className="visually-hidden">Cities</h1>
-        <Tabs cities={Cities} />
+        <Tabs cities={AllCities} />
         <div className="cities">
           <div className="cities__places-container cities__places-container--empty container">
             <section className="cities__no-places">
