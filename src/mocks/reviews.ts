@@ -1,7 +1,7 @@
 import { nanoid } from '@reduxjs/toolkit';
 import { ReviewEntry } from '../const';
 
-export const ReviewsData: ReviewEntry[] = [
+export const REVIEWS_DATA: ReviewEntry[] = [
   {
     id: nanoid(),
     date: '2019-05-08T14:13:56.569Z',

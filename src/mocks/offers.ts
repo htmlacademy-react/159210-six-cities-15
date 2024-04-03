@@ -1,6 +1,6 @@
 import { DetailedOffer, OfferData } from '../const';
 
-export const Offers: OfferData[] = [
+export const OFFERS: OfferData[] = [
   {
     'id': '414fd17d-c2ef-4324-8015-05445fe914e2',
     'title': 'House in countryside',
@@ -89,13 +89,13 @@ export const Offers: OfferData[] = [
       'longitude': 2.358499,
       'zoom': 16
     },
-    'isFavorite': false,
+    'isFavorite': true,
     'isPremium': true,
     'rating': 2.7
   }
 ];
 
-const Goods = [
+const GOODS = [
   'Wi-Fi',
   'Washing machine',
   'Towels',
@@ -113,12 +113,12 @@ function getRandomInt(max: number) {
 }
 
 function getGoodsList() {
-  const listLength = getRandomInt(Goods.length);
+  const listLength = getRandomInt(GOODS.length);
   const list: string[] = [];
   for (let i = 0; i < listLength; i++) {
-    let newGood: string = Goods[getRandomInt(Goods.length)];
+    let newGood: string = GOODS[getRandomInt(GOODS.length)];
     while (list.includes(newGood)) {
-      newGood = Goods[getRandomInt(Goods.length)];
+      newGood = GOODS[getRandomInt(GOODS.length)];
     }
     list.push(newGood);
   }
@@ -126,7 +126,7 @@ function getGoodsList() {
   return list;
 }
 
-export const DetailedOffers: DetailedOffer[] = [
+export const DETAILED_OFFERS: DetailedOffer[] = [
   {
     id: '414fd17d-c2ef-4324-8015-05445fe914e2',
     title: 'House in countryside',
@@ -253,7 +253,7 @@ export const DetailedOffers: DetailedOffer[] = [
       longitude: 2.358499,
       zoom: 16
     },
-    isFavorite: false,
+    isFavorite: true,
     isPremium: true,
     rating: 2.7,
     description: 'Tile House is a stunning example of modern architecture, combining sleek lines with warm and inviting elements to create a truly unique living space. The use of clean lines, geometric shapes, and the incorporation of natural materials such as wood and stone make the house feel both cutting-edge and timeless. The large windows allow for an abundance of natural light, creating an open and airy atmosphere throughout the home.',

@@ -2,7 +2,7 @@ import Header from '../../components/header/header.tsx';
 import { AuthorizationStatus } from '../../const.ts';
 import ReviewForm from '../../components/review-form/review-form.tsx';
 import { useParams } from 'react-router-dom';
-import { DetailedOffers } from '../../mocks/offers.ts';
+import { DETAILED_OFFERS } from '../../mocks/offers.ts';
 import { getRating } from '../../utils.tsx';
 
 type OfferPageProps = {
@@ -26,9 +26,8 @@ type GoodsListProps = {
 }
 
 function ImagesList({images}: ImagesListProps) {
-  let index = 0;
   return images.map((image) => (
-    <div className="offer__image-wrapper" key={index++}>
+    <div className="offer__image-wrapper" key={image}>
       <img className="offer__image"
         src={image}
         alt="Photo studio"
@@ -38,18 +37,8 @@ function ImagesList({images}: ImagesListProps) {
 }
 
 function IsFavorite({isFavorite}: IsFavoriteProps) {
-  if (isFavorite === true) {
-    return (
-      <button className="offer__bookmark-button offer__bookmark-button--active button" type="button">
-        <svg className="offer__bookmark-icon" width={31} height={33}>
-          <use xlinkHref="#icon-bookmark" />
-        </svg>
-        <span className="visually-hidden">To bookmarks</span>
-      </button >
-    );
-  }
   return (
-    <button className="offer__bookmark-button button" type="button">
+    <button className={`offer__bookmark-button ${isFavorite === true ? 'offer__bookmark-button--active' : ''} button`} type="button">
       <svg className="offer__bookmark-icon" width={31} height={33}>
         <use xlinkHref="#icon-bookmark" />
       </svg>
@@ -77,7 +66,7 @@ function HostName({hostName}: HostNameProps) {
 
 export default function OfferPage({ authorizationStatus }: OfferPageProps): JSX.Element {
   const {id} = useParams();
-  const currentOffer = DetailedOffers.filter((offer) => offer.id === id)[0];
+  const currentOffer = DETAILED_OFFERS.filter((offer) => offer.id === id)[0];
 
   return (
     <div className="page">

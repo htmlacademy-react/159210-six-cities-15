@@ -11,8 +11,7 @@ type FavoritesPageProps = {
 export default function FavoritesPage({ authorizationStatus }: FavoritesPageProps): JSX.Element {
   const [, setCurrentId] = useState<string | null>(null);
   const typeOfCard = TypeOfCard.Favorites;
-
-  return (
+  const page = (
     <div className="page">
       <Header authorizationStatus={authorizationStatus} />
       <main className="page__main page__main--favorites">
@@ -86,7 +85,8 @@ export default function FavoritesPage({ authorizationStatus }: FavoritesPageProp
         </a>
       </footer>
     </div>
-
   );
+
+  return page;
 }
 

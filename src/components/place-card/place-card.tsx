@@ -39,7 +39,7 @@ function CheckPremium({ isPremium }: CheckPremiumProps) {
 }
 
 function CheckBookmark({ isFavorite }: CheckBookmarkProps) {
-  if (isFavorite) {
+  if (isFavorite === true) {
     return (
       <button
         className="place-card__bookmark-button place-card__bookmark-button--active button"

@@ -14,24 +14,24 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN'
 }
 
+type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
+type City = {
+  name: string;
+  location: Location;
+}
+
 export type OfferData = {
   id: string;
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: City;
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
@@ -43,19 +43,8 @@ export type FavoritesData = {
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: City;
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
@@ -93,19 +82,8 @@ export type DetailedOffer = {
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: City;
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
