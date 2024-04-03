@@ -1,15 +1,24 @@
 import Header from '../../components/header/header';
-import PlaceCard from '../../components/place-card/place-card';
+import OffersList from '../../components/offers-list/offers-list.tsx';
 import Tabs from '../../components/tabs/tabs';
-import { Cities, PlacesInfo } from '../../const.ts';
+import { AllCities, AuthorizationStatus, OfferData, TypeOfCard } from '../../const.ts';
+import { useState } from 'react';
 
-export default function MainPage(): JSX.Element {
+type MainPageProps = {
+  offers: OfferData[];
+  authorizationStatus: AuthorizationStatus.Auth | AuthorizationStatus.NoAuth;
+}
+
+export default function MainPage({ offers, authorizationStatus }: MainPageProps): JSX.Element {
+  const [сurrentId, setCurrentId] = useState<string | null>(null);
+  const typeOfCard = TypeOfCard.Cities;
+
   return (
     <div className="page page--gray page--main">
-      <Header />
+      <Header authorizationStatus={authorizationStatus}/>
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <Tabs cities={Cities} />
+        <Tabs cities={AllCities} />
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
@@ -41,26 +50,10 @@ export default function MainPage(): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {PlacesInfo.map((place) =>
-                  (
-                    <PlaceCard
-                      img={place.img}
-                      rating={place.rating}
-                      isPremium={place.isPremium}
-                      isBookmarked={place.isBookmarked}
-                      price={place.price}
-                      name={place.name}
-                      type={place.type}
-                      id={place.id}
-                      key={place.id}
-                    />
-                  )
-                )}
-              </div>
+              <OffersList offers={offers} setCurrentId={setCurrentId} typeOfCard = {typeOfCard}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map" />
+              <section className="cities__map map">{сurrentId}</section>
             </div>
           </div>
         </div>
