@@ -3,7 +3,7 @@ import { PictureSize, AllPictureSizes, AppRoute } from '../../const';
 import { getRating } from '../../utils';
 
 type OfferProps = {
-  previewImage: string;
+  images: string[];
   rating: number;
   isPremium: boolean;
   isFavorite: boolean;
@@ -39,27 +39,9 @@ function CheckPremium({ isPremium }: CheckPremiumProps) {
 }
 
 function CheckBookmark({ isFavorite }: CheckBookmarkProps) {
-  if (isFavorite === true) {
-    return (
-      <button
-        className="place-card__bookmark-button place-card__bookmark-button--active button"
-        type="button"
-      >
-        <svg
-          className="place-card__bookmark-icon"
-          width={18}
-          height={19}
-        >
-          <use xlinkHref="#icon-bookmark" />
-        </svg>
-        <span className="visually-hidden">In bookmarks</span>
-      </button>
-    );
-  }
-
   return (
     <button
-      className="place-card__bookmark-button button"
+      className={`place-card__bookmark-button ${isFavorite === true ? 'place-card__bookmark-button--active' : ''} button`}
       type="button"
     >
       <svg
@@ -69,13 +51,13 @@ function CheckBookmark({ isFavorite }: CheckBookmarkProps) {
       >
         <use xlinkHref="#icon-bookmark" />
       </svg>
-      <span className="visually-hidden">To bookmarks</span>
+      <span className="visually-hidden">{isFavorite === true ? 'In bookmarks' : 'To bookmarks'}</span>
     </button>
   );
 }
 
 export default function PlaceCard({ offer, setCurrentId, typeOfCard }: PlaceCardProps): JSX.Element {
-  const { previewImage, rating, isPremium, isFavorite, price, title, type, id } = offer;
+  const { rating, isPremium, isFavorite, price, title, type, id, images } = offer;
 
   const mouseOverHandler = () => {
     setCurrentId(id);
@@ -99,7 +81,7 @@ export default function PlaceCard({ offer, setCurrentId, typeOfCard }: PlaceCard
           <a href="#">
             <img
               className="place-card__image"
-              src={previewImage}
+              src={images[0]}
               width={pictureSize.width}
               height={pictureSize.height}
               alt="Place image"
