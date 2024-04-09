@@ -1,3 +1,5 @@
+import { DETAILED_OFFERS } from './mocks/offers';
+
 export const AllCities: string[] = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
 
 export enum AppRoute {
@@ -25,17 +27,10 @@ type City = {
   location: Location;
 }
 
-export type OfferData = {
-  id: string;
-  title: string;
-  type: string;
-  price: number;
-  city: City;
-  location: Location;
-  isFavorite: boolean;
-  isPremium: boolean;
-  rating: number;
-  previewImage: string;
+type User = {
+  name: string;
+  avatarUrl: string;
+  isPro: boolean;
 }
 
 export type FavoritesData = {
@@ -90,11 +85,7 @@ export type DetailedOffer = {
   description: string;
   bedrooms: number;
   goods: string[];
-  host: {
-    name: string;
-    avatarUrl: string;
-    isPro: boolean;
-  };
+  host: User;
   images: string[];
   maxAdults: number;
 }
@@ -104,11 +95,27 @@ export const RATING_COEFFICIENT = 20;
 export type ReviewEntry = {
   id: string;
   date: string;
-  user: {
-    name: string;
-    avatarUrl: string;
-    isPro: boolean;
-  };
+  user: User;
   comment: string;
   rating: number;
 }
+
+export const URL_MARKER_DEFAULT = './public/img/pin.svg';
+
+export const URL_MARKER_CURRENT = './public/img/pin-active.svg';
+
+export type CityMap = {
+  title: string;
+  lat: number;
+  lng: number;
+  zoom: number;
+}
+
+export const SETTINGS = {
+  PlacesAmount: DETAILED_OFFERS.length,
+} as const;
+
+
+export const TYLE_LAYER_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+
+export const TYLE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
