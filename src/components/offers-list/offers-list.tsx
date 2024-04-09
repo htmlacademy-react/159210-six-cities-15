@@ -1,8 +1,8 @@
-import { OfferData } from '../../const';
+import { DetailedOffer } from '../../const';
 import PlaceCard from '../place-card/place-card';
 
 type OffersListProps = {
-  offers: OfferData[];
+  offers: DetailedOffer[];
   setCurrentId(id: string | null): void;
   typeOfCard: string;
 }

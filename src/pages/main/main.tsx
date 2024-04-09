@@ -1,17 +1,20 @@
+import Map from '../../components/map/map.tsx';
 import Header from '../../components/header/header';
 import OffersList from '../../components/offers-list/offers-list.tsx';
 import Tabs from '../../components/tabs/tabs';
-import { AllCities, AuthorizationStatus, OfferData, TypeOfCard } from '../../const.ts';
+import { AllCities, AuthorizationStatus, DetailedOffer, TypeOfCard } from '../../const.ts';
 import { useState } from 'react';
+import { city } from '../../mocks/city.ts';
 
 type MainPageProps = {
-  offers: OfferData[];
+  offers: DetailedOffer[];
   authorizationStatus: AuthorizationStatus.Auth | AuthorizationStatus.NoAuth;
+  placesAmount: number;
 }
 
-export default function MainPage({ offers, authorizationStatus }: MainPageProps): JSX.Element {
-  const [сurrentId, setCurrentId] = useState<string | null>(null);
-  const typeOfCard = TypeOfCard.Cities;
+export default function MainPage({ offers, authorizationStatus, placesAmount }: MainPageProps): JSX.Element {
+  const [currentId, setCurrentId] = useState<string | null>(null);
+  const typeOfCard: string = TypeOfCard.Cities;
 
   return (
     <div className="page page--gray page--main">
@@ -23,7 +26,7 @@ export default function MainPage({ offers, authorizationStatus }: MainPageProps)
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+              <b className="places__found">{placesAmount} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -53,7 +56,7 @@ export default function MainPage({ offers, authorizationStatus }: MainPageProps)
               <OffersList offers={offers} setCurrentId={setCurrentId} typeOfCard = {typeOfCard}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map">{сurrentId}</section>
+              <Map currentId={currentId} offers={offers} city={city} />
             </div>
           </div>
         </div>

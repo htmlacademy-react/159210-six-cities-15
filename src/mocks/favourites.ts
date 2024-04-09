@@ -11,7 +11,7 @@ type FavoritesMocks = {
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
-  previewImage: string;
+  images: string[];
 }
 
 export const Favorites: FavoritesMocks[] = [
@@ -26,7 +26,7 @@ export const Favorites: FavoritesMocks[] = [
     isFavorite: true,
     isPremium: true,
     rating: 5,
-    previewImage: 'img/apartment-small-03.jpg'
+    images: ['img/apartment-small-03.jpg']
   },
   {
     id: nanoid(),
@@ -39,7 +39,7 @@ export const Favorites: FavoritesMocks[] = [
     isFavorite: true,
     isPremium: false,
     rating: 4,
-    previewImage: 'img/room-small.jpg'
+    images: ['img/room-small.jpg']
   },
   {
     id: nanoid(),
@@ -52,6 +52,6 @@ export const Favorites: FavoritesMocks[] = [
     isFavorite: true,
     isPremium: false,
     rating: 5,
-    previewImage: 'img/apartment-small-04.jpg'
+    images: ['img/apartment-small-04.jpg']
   }
 ];

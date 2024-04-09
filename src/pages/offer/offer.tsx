@@ -1,12 +1,14 @@
 import Header from '../../components/header/header.tsx';
-import { AuthorizationStatus } from '../../const.ts';
+import { AuthorizationStatus, ReviewEntry } from '../../const.ts';
 import ReviewForm from '../../components/review-form/review-form.tsx';
 import { useParams } from 'react-router-dom';
 import { DETAILED_OFFERS } from '../../mocks/offers.ts';
 import { getRating } from '../../utils.tsx';
+import ReviewsList from '../../components/reviews-list/reviews-list.tsx';
 
 type OfferPageProps = {
   authorizationStatus: AuthorizationStatus.Auth | AuthorizationStatus.NoAuth;
+  reviews: ReviewEntry[];
 }
 
 type IsFavoriteProps = {
@@ -48,9 +50,8 @@ function IsFavorite({isFavorite}: IsFavoriteProps) {
 }
 
 function GoodsList({ goods }: GoodsListProps) {
-  let index = 0;
   return goods.map((good) => (
-    <li className="offer__inside-item" key={index++}>{good}</li>
+    <li className="offer__inside-item" key={good}>{good}</li>
   ));
 }
 
@@ -64,7 +65,7 @@ function HostName({hostName}: HostNameProps) {
   );
 }
 
-export default function OfferPage({ authorizationStatus }: OfferPageProps): JSX.Element {
+export default function OfferPage({ authorizationStatus, reviews }: OfferPageProps): JSX.Element {
   const {id} = useParams();
   const currentOffer = DETAILED_OFFERS.filter((offer) => offer.id === id)[0];
 
@@ -139,38 +140,7 @@ export default function OfferPage({ authorizationStatus }: OfferPageProps): JSX.
                 <h2 className="reviews__title">
                   Reviews · <span className="reviews__amount">1</span>
                 </h2>
-                <ul className="reviews__list">
-                  <li className="reviews__item">
-                    <div className="reviews__user user">
-                      <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                        <img
-                          className="reviews__avatar user__avatar"
-                          src="img/avatar-max.jpg"
-                          width={54}
-                          height={54}
-                          alt="Reviews avatar"
-                        />
-                      </div>
-                      <span className="reviews__user-name">Max</span>
-                    </div>
-                    <div className="reviews__info">
-                      <div className="reviews__rating rating">
-                        <div className="reviews__stars rating__stars">
-                          <span style={{ width: '80%' }} />
-                          <span className="visually-hidden">Rating</span>
-                        </div>
-                      </div>
-                      <p className="reviews__text">
-                        A quiet cozy and picturesque that hides behind a a river by
-                        the unique lightness of Amsterdam. The building is green and
-                        from 18th century.
-                      </p>
-                      <time className="reviews__time" dateTime="2019-04-24">
-                        April 2019
-                      </time>
-                    </div>
-                  </li>
-                </ul>
+                <ReviewsList reviews={reviews} />
                 <ReviewForm authorizationStatus={authorizationStatus} />
               </section>
             </div>

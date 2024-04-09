@@ -1,99 +1,4 @@
-import { DetailedOffer, OfferData } from '../const';
-
-export const OFFERS: OfferData[] = [
-  {
-    'id': '414fd17d-c2ef-4324-8015-05445fe914e2',
-    'title': 'House in countryside',
-    'type': 'house',
-    'price': 151,
-    'previewImage': 'https://15.design.htmlacademy.pro/static/hotel/18.jpg',
-    'city': {
-      'name': 'Paris',
-      'location': {
-        'latitude': 48.85661,
-        'longitude': 2.351499,
-        'zoom': 13
-      }
-    },
-    'location': {
-      'latitude': 48.868610000000004,
-      'longitude': 2.342499,
-      'zoom': 16
-    },
-    'isFavorite': false,
-    'isPremium': false,
-    'rating': 3.1
-  },
-  {
-    'id': '6cda5e1d-1c48-43d6-886b-4c8f4eecead5',
-    'title': 'Wood and stone place',
-    'type': 'house',
-    'price': 405,
-    'previewImage': 'https://15.design.htmlacademy.pro/static/hotel/1.jpg',
-    'city': {
-      'name': 'Paris',
-      'location': {
-        'latitude': 48.85661,
-        'longitude': 2.351499,
-        'zoom': 13
-      }
-    },
-    'location': {
-      'latitude': 48.858610000000006,
-      'longitude': 2.330499,
-      'zoom': 16
-    },
-    'isFavorite': false,
-    'isPremium': true,
-    'rating': 4.9
-  },
-  {
-    'id': '76964682-fb03-42c9-888d-b6b53256507e',
-    'title': 'The house among olive',
-    'type': 'room',
-    'price': 286,
-    'previewImage': 'https://15.design.htmlacademy.pro/static/hotel/13.jpg',
-    'city': {
-      'name': 'Paris',
-      'location': {
-        'latitude': 48.85661,
-        'longitude': 2.351499,
-        'zoom': 13
-      }
-    },
-    'location': {
-      'latitude': 48.834610000000005,
-      'longitude': 2.335499,
-      'zoom': 16
-    },
-    'isFavorite': false,
-    'isPremium': true,
-    'rating': 4
-  },
-  {
-    'id': 'a0b8a2e8-91f3-4665-bb55-2e32efc4c647',
-    'title': 'Tile House',
-    'type': 'hotel',
-    'price': 241,
-    'previewImage': 'https://15.design.htmlacademy.pro/static/hotel/8.jpg',
-    'city': {
-      'name': 'Paris',
-      'location': {
-        'latitude': 48.85661,
-        'longitude': 2.351499,
-        'zoom': 13
-      }
-    },
-    'location': {
-      'latitude': 48.85761,
-      'longitude': 2.358499,
-      'zoom': 16
-    },
-    'isFavorite': true,
-    'isPremium': true,
-    'rating': 2.7
-  }
-];
+import { DetailedOffer } from '../const';
 
 const GOODS = [
   'Wi-Fi',
@@ -133,16 +38,16 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     type: 'house',
     price: 151,
     city: {
-      name: 'Paris',
+      name: 'Amsterdam',
       location: {
-        latitude: 48.85661,
-        longitude: 2.351499,
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
         zoom: 13,
       },
     },
     location: {
-      latitude: 48.868610000000004,
-      longitude: 2.342499,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 16
     },
     isFavorite: false,
@@ -153,14 +58,14 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     goods: getGoodsList(),
     host: {
       name: 'Eugene Duffy',
-      avatarUrl: 'https://loremflickr.com/100/100',
+      avatarUrl: 'https://15.design.htmlacademy.pro/static/hotel/18.jpg',
       isPro: true,
     },
-    images: ['https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200'],
+    images: ['https://15.design.htmlacademy.pro/static/hotel/18.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/18.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/18.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/18.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/18.jpg'],
     maxAdults: 2
   },
   {
@@ -169,16 +74,16 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     type: 'house',
     price: 405,
     city: {
-      name: 'Paris',
+      name: 'Amsterdam',
       location: {
-        latitude: 48.85661,
-        longitude: 2.351499,
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
         zoom: 13,
       },
     },
     location: {
-      latitude: 48.858610000000006,
-      longitude: 2.330499,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 16
     },
     isFavorite: false,
@@ -189,13 +94,13 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     goods: getGoodsList(),
     host: {
       name: 'Alia Crosby',
-      avatarUrl: 'https://loremflickr.com/100/100',
+      avatarUrl: 'https://15.design.htmlacademy.pro/static/hotel/1.jpg',
       isPro: false,
     },
-    images: ['https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200'],
+    images: ['https://15.design.htmlacademy.pro/static/hotel/1.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/1.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/1.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/1.jpg'],
     maxAdults: 3
   },
   {
@@ -204,16 +109,16 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     type: 'room',
     price: 286,
     city: {
-      name: 'Paris',
+      name: 'Amsterdam',
       location: {
-        latitude: 48.85661,
-        longitude: 2.351499,
+        latitude: 52.3909553943508,
+        longitude: 4.929309666406198,
         zoom: 13,
       },
     },
     location: {
-      latitude: 48.834610000000005,
-      longitude: 2.335499,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 16
     },
     isFavorite: false,
@@ -224,15 +129,15 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     goods: getGoodsList(),
     host: {
       name: 'Hashim Dennis',
-      avatarUrl: 'https://loremflickr.com/100/100',
+      avatarUrl: 'https://15.design.htmlacademy.pro/static/hotel/13.jpg',
       isPro: false,
     },
-    images: ['https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200'],
+    images: ['https://15.design.htmlacademy.pro/static/hotel/13.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/13.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/13.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/13.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/13.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/13.jpg'],
     maxAdults: 1
   },
   {
@@ -241,16 +146,16 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     type: 'hotel',
     price: 241,
     city: {
-      name: 'Paris',
+      name: 'Amsterdam',
       location: {
-        latitude: 48.85661,
-        longitude: 2.351499,
+        latitude: 52.3909553943508,
+        longitude: 4.929309666406198,
         zoom: 13,
       },
     },
     location: {
-      latitude: 48.85761,
-      longitude: 2.358499,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 16
     },
     isFavorite: true,
@@ -261,14 +166,14 @@ export const DETAILED_OFFERS: DetailedOffer[] = [
     goods: getGoodsList(),
     host: {
       name: 'Ishaan Gutierrez',
-      avatarUrl: 'https://loremflickr.com/100/100',
+      avatarUrl: 'https://15.design.htmlacademy.pro/static/hotel/8.jpg',
       isPro: true,
     },
-    images: ['https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200',
-      'https://loremflickr.com/260/200'],
+    images: ['https://15.design.htmlacademy.pro/static/hotel/8.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/8.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/8.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/8.jpg',
+      'https://15.design.htmlacademy.pro/static/hotel/8.jpg'],
     maxAdults: 36
   },
 ];
