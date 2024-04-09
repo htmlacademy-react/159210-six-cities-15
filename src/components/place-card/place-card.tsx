@@ -70,47 +70,46 @@ export default function PlaceCard({ offer, setCurrentId, typeOfCard }: PlaceCard
   const pictureSize: PictureSize = AllPictureSizes[typeOfCard];
 
   return (
-    <Link to={`${AppRoute.Offer.replace(':id', id)}`}>
-      <article
-        className={`${typeOfCard }__card place-card`}
-        onMouseOver={mouseOverHandler}
-        onMouseOut={mouseOutHandler}
-      >
-        <CheckPremium isPremium={isPremium} />
-        <div className={`${typeOfCard }__image-wrapper place-card__image-wrapper`}>
+
+    <article
+      className={`${typeOfCard }__card place-card`}
+      onMouseOver={mouseOverHandler}
+      onMouseOut={mouseOutHandler}
+    >
+      <CheckPremium isPremium={isPremium} />
+      <div className={`${typeOfCard }__image-wrapper place-card__image-wrapper`}>
+        <Link to={`${AppRoute.Offer.replace(':id', id)}`}>
+          <img
+            className="place-card__image"
+            src={images[0]}
+            width={pictureSize.width}
+            height={pictureSize.height}
+            alt="Place image"
+          />
+        </Link>
+      </div>
+      <div className="place-card__info">
+        <div className="place-card__price-wrapper">
+          <div className="place-card__price">
+            <b className="place-card__price-value">€{price}</b>
+            <span className="place-card__price-text">/&nbsp;night</span>
+          </div>
+          <CheckBookmark isFavorite={isFavorite} />
+        </div>
+        <div className="place-card__rating rating">
+          <div className="place-card__stars rating__stars">
+            <span style={{ width: getRating(rating) }} />
+            <span className="visually-hidden">Rating</span>
+          </div>
+        </div>
+        <h2 className="place-card__name">
           <a href="#">
-            <img
-              className="place-card__image"
-              src={images[0]}
-              width={pictureSize.width}
-              height={pictureSize.height}
-              alt="Place image"
-            />
+            {title}
           </a>
-        </div>
-        <div className="place-card__info">
-          <div className="place-card__price-wrapper">
-            <div className="place-card__price">
-              <b className="place-card__price-value">€{price}</b>
-              <span className="place-card__price-text">/&nbsp;night</span>
-            </div>
-            <CheckBookmark isFavorite={isFavorite} />
-          </div>
-          <div className="place-card__rating rating">
-            <div className="place-card__stars rating__stars">
-              <span style={{ width: getRating(rating) }} />
-              <span className="visually-hidden">Rating</span>
-            </div>
-          </div>
-          <h2 className="place-card__name">
-            <a href="#">
-              {title}
-            </a>
-          </h2>
-          <p className="place-card__type">{type}</p>
-        </div>
-      </article>
-    </Link>
+        </h2>
+        <p className="place-card__type">{type}</p>
+      </div>
+    </article>
   );
 }
 
