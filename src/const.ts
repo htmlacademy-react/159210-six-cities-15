@@ -69,8 +69,22 @@ export const AllPictureSizes: PictureSizes = {
   favorites: {
     width: '150',
     height: '110'
-  }
+  },
+  'near-places': {
+    width: '260',
+    height: '200'
+  },
 };
+
+export enum MapTypes {
+  Cities = 'cities',
+  Offer = 'offer'
+}
+
+export enum PlacesListTypes {
+  Cities = 'cities',
+  NearPlaces = 'near-places'
+}
 
 export type DetailedOffer = {
   id: string;
@@ -100,9 +114,9 @@ export type ReviewEntry = {
   rating: number;
 }
 
-export const URL_MARKER_DEFAULT = './public/img/pin.svg';
+export const URL_MARKER_DEFAULT = './img/pin.svg';
 
-export const URL_MARKER_CURRENT = './public/img/pin-active.svg';
+export const URL_MARKER_CURRENT = './img/pin-active.svg';
 
 export type CityMap = {
   title: string;

@@ -5,9 +5,10 @@ import useMap from '../../hooks/use-map';
 import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT, CityMap, DetailedOffer } from '../../const';
 
 type MapProps = {
-  currentId: string | null;
+  currentId: string | null | undefined;
   city: CityMap;
   offers: DetailedOffer[];
+  mapType: string;
 }
 
 const defaultCustomIcon = leaflet.icon({
@@ -22,7 +23,7 @@ const currentCustomIcon = leaflet.icon({
   iconAnchor: [27, 78],
 });
 
-export default function Map({ currentId, city, offers }: MapProps): JSX.Element {
+export default function Map({ currentId, city, offers, mapType }: MapProps): JSX.Element {
 
   const mapContainerRef = useRef(null);
   const map = useMap({mapContainerRef, city});
@@ -30,6 +31,13 @@ export default function Map({ currentId, city, offers }: MapProps): JSX.Element 
   useEffect((): void => {
 
     if (map) {
+      map.eachLayer((layer) => {
+        if (layer instanceof leaflet.LayerGroup) {
+          map.removeLayer(layer);
+        }
+      });
+
+      const markers = leaflet.layerGroup().addTo(map);
       offers.forEach((offer): void => {
         leaflet
           .marker({
@@ -40,10 +48,11 @@ export default function Map({ currentId, city, offers }: MapProps): JSX.Element 
               ? currentCustomIcon
               : defaultCustomIcon
           })
-          .addTo(map);
+          .addTo(markers);
       });
+
     }
   }, [currentId, map, offers]);
 
-  return (<section className="cities__map map" ref={mapContainerRef}></section>);
+  return (<section className={`${mapType}__map map`} ref={mapContainerRef}></section>);
 }

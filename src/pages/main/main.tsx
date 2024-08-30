@@ -2,7 +2,7 @@ import Map from '../../components/map/map.tsx';
 import Header from '../../components/header/header';
 import OffersList from '../../components/offers-list/offers-list.tsx';
 import Tabs from '../../components/tabs/tabs';
-import { AllCities, AuthorizationStatus, DetailedOffer, TypeOfCard } from '../../const.ts';
+import { AllCities, AuthorizationStatus, DetailedOffer, MapTypes, TypeOfCard } from '../../const.ts';
 import { useState } from 'react';
 import { city } from '../../mocks/city.ts';
 
@@ -53,10 +53,10 @@ export default function MainPage({ offers, authorizationStatus, placesAmount }: 
                   </li>
                 </ul>
               </form>
-              <OffersList offers={offers} setCurrentId={setCurrentId} typeOfCard = {typeOfCard}/>
+              <OffersList offers={offers} setCurrentId={setCurrentId} typeOfCard = {typeOfCard} />
             </section>
             <div className="cities__right-section">
-              <Map currentId={currentId} offers={offers} city={city} />
+              <Map currentId={currentId} offers={offers} city={city} mapType={MapTypes.Cities} />
             </div>
           </div>
         </div>
