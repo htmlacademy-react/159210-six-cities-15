@@ -26,7 +26,7 @@ export default function App({ offers, placesAmount, reviews }: AppProps): JSX.El
           </PrivateRoute>
         }
         />
-        <Route path={AppRoute.Offer} element={<OfferPage authorizationStatus={currentStatus} reviews={reviews}/>} />
+        <Route path={AppRoute.Offer} element={<OfferPage authorizationStatus={currentStatus} reviews={reviews} offers={offers}/>} />
         <Route path={AppRoute.Any} element={<NotFoundPage authorizationStatus={currentStatus} />} />
       </Routes>
     </BrowserRouter>
