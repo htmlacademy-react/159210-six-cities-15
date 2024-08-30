@@ -30,6 +30,13 @@ export default function Map({ currentId, city, offers }: MapProps): JSX.Element 
   useEffect((): void => {
 
     if (map) {
+      map.eachLayer((layer) => {
+        if (layer instanceof leaflet.LayerGroup) {
+          map.removeLayer(layer);
+        }
+      });
+
+      const markers = leaflet.layerGroup().addTo(map);
       offers.forEach((offer): void => {
         leaflet
           .marker({
@@ -40,8 +47,9 @@ export default function Map({ currentId, city, offers }: MapProps): JSX.Element 
               ? currentCustomIcon
               : defaultCustomIcon
           })
-          .addTo(map);
+          .addTo(markers);
       });
+
     }
   }, [currentId, map, offers]);
 
