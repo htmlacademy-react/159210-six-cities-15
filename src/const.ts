@@ -69,8 +69,22 @@ export const AllPictureSizes: PictureSizes = {
   favorites: {
     width: '150',
     height: '110'
-  }
+  },
+  'near-places': {
+    width: '260',
+    height: '200'
+  },
 };
+
+export enum MapTypes {
+  Cities = 'cities',
+  Offer = 'offer'
+}
+
+export enum PlacesListTypes {
+  Cities = 'cities',
+  NearPlaces = 'near-places'
+}
 
 export type DetailedOffer = {
   id: string;
